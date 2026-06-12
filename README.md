@@ -189,12 +189,3 @@ int stock;             // 현재 재고 수량 (ea)
 - [`docs/rules/java-code-convention.md`](docs/rules/java-code-convention.md) — Java 코드 컨벤션
 - [`docs/rules/git-convention.md`](docs/rules/git-convention.md) — Git 커밋/브랜치 전략
 
----
-
-## 개발자 정보
-
-| 항목 | 내용 |
-|------|------|
-| **이름** | 이현범 |
-| **학번** | 23019036 |
-| **개발 방법론** | TDD (Red → Green → Review) |
