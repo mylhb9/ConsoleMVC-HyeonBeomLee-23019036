@@ -97,11 +97,11 @@ int stock;             // 현재 재고 수량 (ea)
 
 ## 완료 기준 (Definition of Done)
 
-- [ ] `model`, `controller`, `view`, `repository`, `service` 패키지 구조 완성
-- [ ] 콘솔에서 시료 등록 → 시료 목록 조회 흐름 정상 동작
-- [ ] View ↔ Model 직접 의존 없음 (Controller 경유)
-- [ ] 단위 테스트 1개 이상 통과
-- [ ] 컨벤셔널 커밋 최소 3회 이상
+- [x] `model`, `controller`, `view`, `repository`, `service` 패키지 구조 완성
+- [x] 콘솔에서 시료 등록 → 시료 목록 조회 흐름 정상 동작
+- [x] View ↔ Model 직접 의존 없음 (Controller 경유)
+- [x] 단위 테스트 1개 이상 통과 (단위 26개 + 통합 10개, 총 36개 통과)
+- [x] 컨벤셔널 커밋 최소 3회 이상 (총 12회)
 
 ## 관련 문서
 
