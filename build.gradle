@@ -1,9 +1,15 @@
 plugins {
     id 'java'
+    id 'application'
+    id 'jacoco'
 }
 
-group = 'org.data'
+group = 'com.ssemi'
 version = '1.0-SNAPSHOT'
+
+application {
+    mainClass = 'com.ssemi.consolemvc.Application'
+}
 
 repositories {
     mavenCentral()
@@ -12,8 +18,47 @@ repositories {
 dependencies {
     testImplementation platform('org.junit:junit-bom:5.10.0')
     testImplementation 'org.junit.jupiter:junit-jupiter'
+    testImplementation 'org.assertj:assertj-core:3.25.1'
+    testImplementation 'org.mockito:mockito-core:5.+'
 }
 
 test {
     useJUnitPlatform()
+    finalizedBy jacocoTestReport
 }
+
+jacocoTestReport {
+    dependsOn test
+    reports {
+        xml.required = true
+    }
+}
+
+jacocoTestCoverageVerification {
+    violationRules {
+        rule {
+            limit {
+                counter = 'LINE'
+                value = 'COVEREDRATIO'
+                minimum = 1.0
+            }
+            limit {
+                counter = 'BRANCH'
+                value = 'COVEREDRATIO'
+                minimum = 1.0
+            }
+        }
+    }
+    classDirectories.setFrom(
+        sourceSets.main.output.asFileTree.matching {
+            exclude(
+                '**/view/**',
+                '**/dto/**',
+                '**/exception/**',
+                '**/Application.class'
+            )
+        }
+    )
+}
+
+check.dependsOn jacocoTestCoverageVerification
